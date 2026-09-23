@@ -45,6 +45,9 @@ target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
 # Add sources to executable
 target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user sources here
+    Core/Src/car_logic.c
+    Core/Src/car_hw.c
+    Core/Src/car_app.c
 )
 
 # Add include paths

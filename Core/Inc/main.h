@@ -49,6 +49,8 @@ extern "C" {
 
 /* USER CODE END EM */
 
+void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
+
 /* Exported functions prototypes ---------------------------------------------*/
 void Error_Handler(void);
 
@@ -57,6 +59,50 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define US_L_ECHO_Pin GPIO_PIN_5
+#define US_L_ECHO_GPIO_Port GPIOE
+#define US_R_ECHO_Pin GPIO_PIN_6
+#define US_R_ECHO_GPIO_Port GPIOE
+#define LINE_S0_Pin GPIO_PIN_0
+#define LINE_S0_GPIO_Port GPIOF
+#define LINE_S1_Pin GPIO_PIN_1
+#define LINE_S1_GPIO_Port GPIOF
+#define LINE_S2_Pin GPIO_PIN_2
+#define LINE_S2_GPIO_Port GPIOF
+#define LINE_OUT_Pin GPIO_PIN_3
+#define LINE_OUT_GPIO_Port GPIOF
+#define ENC_L_A_Pin GPIO_PIN_0
+#define ENC_L_A_GPIO_Port GPIOA
+#define ENC_L_B_Pin GPIO_PIN_1
+#define ENC_L_B_GPIO_Port GPIOA
+#define STEER_PWM_Pin GPIO_PIN_9
+#define STEER_PWM_GPIO_Port GPIOE
+#define BT_TX_Pin GPIO_PIN_10
+#define BT_TX_GPIO_Port GPIOB
+#define BT_RX_Pin GPIO_PIN_11
+#define BT_RX_GPIO_Port GPIOB
+#define MOTOR_L_PWM_Pin GPIO_PIN_6
+#define MOTOR_L_PWM_GPIO_Port GPIOC
+#define MOTOR_R_PWM_Pin GPIO_PIN_7
+#define MOTOR_R_PWM_GPIO_Port GPIOC
+#define MOTOR_L_IN1_Pin GPIO_PIN_0
+#define MOTOR_L_IN1_GPIO_Port GPIOD
+#define MOTOR_L_IN2_Pin GPIO_PIN_1
+#define MOTOR_L_IN2_GPIO_Port GPIOD
+#define MOTOR_R_IN1_Pin GPIO_PIN_2
+#define MOTOR_R_IN1_GPIO_Port GPIOD
+#define MOTOR_R_IN2_Pin GPIO_PIN_3
+#define MOTOR_R_IN2_GPIO_Port GPIOD
+#define MOTOR_STBY_Pin GPIO_PIN_4
+#define MOTOR_STBY_GPIO_Port GPIOD
+#define US_L_TRIG_Pin GPIO_PIN_5
+#define US_L_TRIG_GPIO_Port GPIOD
+#define US_R_TRIG_Pin GPIO_PIN_6
+#define US_R_TRIG_GPIO_Port GPIOD
+#define ENC_R_A_Pin GPIO_PIN_6
+#define ENC_R_A_GPIO_Port GPIOB
+#define ENC_R_B_Pin GPIO_PIN_7
+#define ENC_R_B_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
 
