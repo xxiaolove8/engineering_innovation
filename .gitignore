@@ -1,4 +1,40 @@
+# Build output and CMake-generated files
 build/
-tmp/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+compile_commands.json
+*.o
+*.obj
+*.d
+*.su
+*.elf
+*.hex
+*.bin
+*.map
+*.a
+*.exe
+
+# Temporary output; keep the hand-written project utility scripts.
+/tmp/*
+!/tmp/left_motor_run.py
+!/tmp/refactor_board.py
+!/tmp/serial_live_probe.py
+!/tmp/serial_stability_check.py
+!/tmp/servo_review/
+/tmp/servo_review/*
+!/tmp/servo_review/archive_sources.py
+!/tmp/servo_review/check_ui.py
+!/tmp/serial_identity/
+/tmp/serial_identity/*
+!/tmp/serial_identity/rebuild_old_system.py
+
+# Runtime logs and Python environment/cache
+*.log
+.venv/
 __pycache__/
-*.pyc
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/

@@ -30,6 +30,18 @@
  */
 static uint8_t *__sbrk_heap_end = NULL;
 
+/* Boundaries can be supplied by a native regression test without pretending
+   that linker-defined absolute symbols are ordinary host variables. */
+#ifndef SBRK_HEAP_START
+extern uint8_t _end; /* Symbol defined in the linker script */
+#define SBRK_HEAP_START ((uintptr_t)&_end)
+#endif
+#ifndef SBRK_HEAP_LIMIT
+extern uint8_t _estack; /* Symbol defined in the linker script */
+extern uint32_t _Min_Stack_Size; /* Absolute symbol defined in the linker script */
+#define SBRK_HEAP_LIMIT ((uintptr_t)&_estack - (uintptr_t)&_Min_Stack_Size)
+#endif
+
 /**
  * @brief _sbrk() allocates memory to the newlib heap and is used by malloc
  *        and others from the C library
@@ -53,30 +65,33 @@ static uint8_t *__sbrk_heap_end = NULL;
  */
 void *_sbrk(ptrdiff_t incr)
 {
-  extern uint8_t _end; /* Symbol defined in the linker script */
-  extern uint8_t _estack; /* Symbol defined in the linker script */
-  extern uint32_t _Min_Stack_Size; /* Symbol defined in the linker script */
-  const uint32_t stack_limit = (uint32_t)&_estack - (uint32_t)&_Min_Stack_Size;
-  const uint8_t *max_heap = (uint8_t *)stack_limit;
-  uint8_t *prev_heap_end;
+  const uintptr_t heap_start = SBRK_HEAP_START;
+  const uintptr_t heap_limit = SBRK_HEAP_LIMIT;
 
   /* Initialize heap end at first call */
   if (NULL == __sbrk_heap_end)
   {
-    __sbrk_heap_end = &_end;
+    __sbrk_heap_end = (uint8_t *)heap_start;
   }
 
-  /* Protect heap from growing into the reserved MSP stack */
-  if (__sbrk_heap_end + incr > max_heap)
-  {
+  uintptr_t current = (uintptr_t)__sbrk_heap_end;
+  if (current < heap_start || current > heap_limit) {
     errno = ENOMEM;
     return (void *)-1;
   }
-
-  prev_heap_end = __sbrk_heap_end;
-  __sbrk_heap_end += incr;
-
-  return (void *)prev_heap_end;
+  uintptr_t next;
+  if (incr >= 0) {
+    uintptr_t growth = (uintptr_t)incr;
+    if (growth > heap_limit - current) { errno = ENOMEM; return (void *)-1; }
+    next = current + growth;
+  } else {
+    /* -(incr + 1) avoids signed overflow for PTRDIFF_MIN. */
+    uintptr_t shrink = (uintptr_t)(-(incr + 1)) + 1U;
+    if (shrink > current - heap_start) { errno = ENOMEM; return (void *)-1; }
+    next = current - shrink;
+  }
+  __sbrk_heap_end = (uint8_t *)next;
+  return (void *)current;
 }
 
 #if defined(__PICOLIBC__)

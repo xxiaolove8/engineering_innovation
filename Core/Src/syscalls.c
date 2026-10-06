@@ -29,6 +29,7 @@
 #include <time.h>
 #include <sys/time.h>
 #include <sys/times.h>
+#include "car_hw.h"
 
 
 /* Variables */
@@ -38,6 +39,11 @@ extern int __io_getchar(void) __attribute__((weak));
 
 char *__env[1] = { 0 };
 char **environ = __env;
+
+static int standard_descriptor(int file)
+{
+  return file >= 0 && file <= 2;
+}
 
 
 /* Functions */
@@ -60,18 +66,30 @@ int _kill(int pid, int sig)
 
 void _exit (int status)
 {
+  CarHw_EmergencyStop();
   _kill(status, -1);
   while (1) {}    /* Make sure we hang here */
 }
 
 __attribute__((weak)) int _read(int file, char *ptr, int len)
 {
-  (void)file;
+  if (file != 0) { errno = EBADF; return -1; }
+  if (len < 0) { errno = EINVAL; return -1; }
+  if (len == 0) return 0;
+  if (ptr == NULL) { errno = EFAULT; return -1; }
+  /* No console is attached by default. Keep diagnostic stdio separate from
+     the framed car-control UART and never call an unresolved weak hook. */
+  if (__io_getchar == NULL) { errno = ENOSYS; return -1; }
   int DataIdx;
 
   for (DataIdx = 0; DataIdx < len; DataIdx++)
   {
-    *ptr++ = __io_getchar();
+    int ch = __io_getchar();
+    if (ch < 0) {
+      errno = EIO;
+      return DataIdx > 0 ? DataIdx : -1;
+    }
+    *ptr++ = (char)ch;
   }
 
   return len;
@@ -79,49 +97,57 @@ __attribute__((weak)) int _read(int file, char *ptr, int len)
 
 __attribute__((weak)) int _write(int file, char *ptr, int len)
 {
-  (void)file;
+  if (file != 1 && file != 2) { errno = EBADF; return -1; }
+  if (len < 0) { errno = EINVAL; return -1; }
+  if (len == 0) return 0;
+  if (ptr == NULL) { errno = EFAULT; return -1; }
+  if (__io_putchar == NULL) { errno = ENOSYS; return -1; }
   int DataIdx;
 
   for (DataIdx = 0; DataIdx < len; DataIdx++)
   {
-    __io_putchar(*ptr++);
+    if (__io_putchar((unsigned char)*ptr++) < 0) {
+      errno = EIO;
+      return DataIdx > 0 ? DataIdx : -1;
+    }
   }
   return len;
 }
 
 int _close(int file)
 {
-  (void)file;
+  errno = standard_descriptor(file) ? ENOSYS : EBADF;
   return -1;
 }
 
 
 int _fstat(int file, struct stat *st)
 {
-  (void)file;
+  if (!standard_descriptor(file)) { errno = EBADF; return -1; }
+  if (st == NULL) { errno = EFAULT; return -1; }
+  *st = (struct stat){0};
   st->st_mode = S_IFCHR;
   return 0;
 }
 
 int _isatty(int file)
 {
-  (void)file;
+  if (!standard_descriptor(file)) { errno = EBADF; return 0; }
   return 1;
 }
 
 int _lseek(int file, int ptr, int dir)
 {
-  (void)file;
   (void)ptr;
   (void)dir;
-  return 0;
+  errno = standard_descriptor(file) ? ESPIPE : EBADF;
+  return -1;
 }
 
 int _open(char *path, int flags, ...)
 {
-  (void)path;
   (void)flags;
-  /* Pretend like we always fail */
+  errno = path == NULL ? EFAULT : ENOSYS;
   return -1;
 }
 
@@ -142,14 +168,14 @@ int _unlink(char *name)
 clock_t _times(struct tms *buf)
 {
   (void)buf;
+  errno = ENOSYS;
   return -1;
 }
 
 int _stat(const char *file, struct stat *st)
 {
-  (void)file;
-  st->st_mode = S_IFCHR;
-  return 0;
+  errno = file == NULL || st == NULL ? EFAULT : ENOSYS;
+  return -1;
 }
 
 int _link(char *old, char *new)
@@ -187,9 +213,8 @@ int _execve(char *name, char **argv, char **env)
  */
 static int starm_putc(char c, FILE *file)
 {
-	(void) file;
-  __io_putchar(c);
-	return c;
+  (void)file;
+  return _write(1, &c, 1) == 1 ? (unsigned char)c : EOF;
 }
 
 /**
@@ -200,10 +225,9 @@ static int starm_putc(char c, FILE *file)
  */
 static int starm_getc(FILE *file)
 {
-	unsigned char c;
-	(void) file;
-  c = __io_getchar();
-	return c;
+  char c;
+  (void)file;
+  return _read(0, &c, 1) == 1 ? (unsigned char)c : EOF;
 }
 
 // Define and initialize the standard I/O streams for Picolibc.

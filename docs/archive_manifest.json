@@ -1,0 +1,216 @@
+{
+  "archived_on": "2026-09-30",
+  "method": "byte-for-byte copy; parent originals retained",
+  "files": [
+    {
+      "path": "2026929PINOUT.md",
+      "bytes": 16328,
+      "sha256": "483badb6a39fc2490395767be9396f07a5b23217ab18f0f449709600e760e83f",
+      "original": "D:/projects/docs/2026929PINOUT.md"
+    },
+    {
+      "path": "2026年循迹小车分散实训PPT.pdf",
+      "bytes": 3087369,
+      "sha256": "0b9618f7ba8087317b526d8ca2bf68ac6f06fe81eac02ce69ceef7d30f19cd73",
+      "original": "D:/projects/if_car/docs/2026年循迹小车分散实训PPT.pdf"
+    },
+    {
+      "path": "DS3218 datasheet.pdf",
+      "bytes": 398540,
+      "sha256": "4d820ce874a8e0caf5f57759bc7c326478178e87300dac082a68b2c46ffa5459",
+      "original": "D:/projects/docs/DS3218 datasheet.pdf"
+    },
+    {
+      "path": "f407_data/STM32F407_CORE_BOARD_V1.4.pdf",
+      "bytes": 1620700,
+      "sha256": "2b15810abbc471b3b4becfb7d97ab8da94f68dfbe3aa58050623d42eb808f6fc",
+      "original": "D:/projects/docs/f407_data/STM32F407_CORE_BOARD_V1.4.pdf"
+    },
+    {
+      "path": "f407_data/STM32F407最小系统板IO分配表.xlsx",
+      "bytes": 20833,
+      "sha256": "34b6a6916f98038ce6f7596c707b6da3f343bb3f227680dbbadb910711fea933",
+      "original": "D:/projects/docs/f407_data/STM32F407最小系统板IO分配表.xlsx"
+    },
+    {
+      "path": "蓝牙模块AT指令手册-67f1d39f55087ac97890e922766ba4bb.pdf",
+      "bytes": 1146175,
+      "sha256": "275cd2e2278b925dbc59bf83c4c58dcdb57df20bc1ddbe977ae81ef0b486b9f1",
+      "original": "D:/projects/docs/蓝牙模块AT指令手册-67f1d39f55087ac97890e922766ba4bb.pdf"
+    },
+    {
+      "path": "蓝牙模块DX-BT24技术手册-24dc986a6ba9b0512dcff32f34df2488.pdf",
+      "bytes": 1906234,
+      "sha256": "28ef7d92796e8b6981e84b09da3e9d8dcd41136c6eacc3e61d3500e80052233f",
+      "original": "D:/projects/docs/蓝牙模块DX-BT24技术手册-24dc986a6ba9b0512dcff32f34df2488.pdf"
+    },
+    {
+      "path": "modules/jdy31/manual.pdf",
+      "bytes": 427986,
+      "sha256": "50178a01b4372c04b4323b2b1d468062377e70e82a371d08165db155d4674bde",
+      "original": "D:/projects/docs/蓝牙串口模块JDY-31（4针）/JDY-31-V1.3蓝牙SPP串口透传模块手册.pdf"
+    },
+    {
+      "path": "modules/line_sensor/intro.pdf",
+      "bytes": 2095903,
+      "sha256": "5c24e2e84e6dc4bc1e0a5bbd70496eb339c69c8f5262b5c32952e79bf7098416",
+      "original": "D:/projects/docs/八路灰度模块/1.8路灰度模块简介/用户入门手册.pdf"
+    },
+    {
+      "path": "modules/line_sensor/stm32_read.pdf",
+      "bytes": 953475,
+      "sha256": "63ad89b12255bd5eaef3ad32fee6941323902a991c32312b243ea83fac628904",
+      "original": "D:/projects/docs/八路灰度模块/2.单片机数据读取/3.STM32F103C8T6/数据读取.pdf"
+    },
+    {
+      "path": "modules/line_sensor/stm32_follow.pdf",
+      "bytes": 583941,
+      "sha256": "1e0a8edc0ccae0ab6609053b234b9a15ef88ffd4351e717bbc9137b4fdb8c9de",
+      "original": "D:/projects/docs/八路灰度模块/3.小车灰度巡线/2.STM32开发板小车/小车巡线.pdf"
+    },
+    {
+      "path": "modules/line_sensor/troubleshooting.pdf",
+      "bytes": 2217322,
+      "sha256": "b7c4855c58e55a9ea6a5642657949b45fe379df206962edba56a5c7e29848972",
+      "original": "D:/projects/docs/八路灰度模块/0.使用注意事项/识别不良解决方案.pdf"
+    },
+    {
+      "path": "modules/line_sensor/reference/f103_grayscale_sensor.c",
+      "bytes": 1924,
+      "sha256": "bc012acfd4aa6415c74f6c3636f77d0b999264d7e79aca7ebc2d577149aeb432",
+      "original": "D:/projects/docs/八路灰度模块/4、程序源码.rar",
+      "archive_member": "4、程序源码/1.单片机数据读取/2.STM32F103C8T6/Grayscale_Read/BSP/Grayscale_Sensor/grayscale_sensor.c"
+    },
+    {
+      "path": "modules/line_sensor/reference/f103_grayscale_sensor.h",
+      "bytes": 1965,
+      "sha256": "27bec48a7ab122c0ad1428c8f35a81fc7db7e8ee2ff413f98b5ad8f81a8d7dd6",
+      "original": "D:/projects/docs/八路灰度模块/4、程序源码.rar",
+      "archive_member": "4、程序源码/1.单片机数据读取/2.STM32F103C8T6/Grayscale_Read/BSP/Grayscale_Sensor/grayscale_sensor.h"
+    },
+    {
+      "path": "modules/line_sensor/reference/car_trace_task.c",
+      "bytes": 5760,
+      "sha256": "5acc834deef46d3ce4e9162034727a5843a93b3ddc57b376e55bd8c96aa3a645",
+      "original": "D:/projects/docs/八路灰度模块/4、程序源码.rar",
+      "archive_member": "4、程序源码/2.小车灰度巡线/2.STM32开发板小车/Grayscale_Trace/APP/trace_task.c"
+    },
+    {
+      "path": "modules/line_sensor/reference/car_trace_task.h",
+      "bytes": 1616,
+      "sha256": "3369d2fbb34d1a63eed7313924043e36898bc7c0fd337f0e1cfb9a2f12d6b184",
+      "original": "D:/projects/docs/八路灰度模块/4、程序源码.rar",
+      "archive_member": "4、程序源码/2.小车灰度巡线/2.STM32开发板小车/Grayscale_Trace/APP/trace_task.h"
+    },
+    {
+      "path": "modules/line_sensor/reference/car_grayscale_sensor.c",
+      "bytes": 2193,
+      "sha256": "fa233ecb7f17c014c2b609bf69c9bcae6ffce6944aadec93c2d4b7c612cab6ba",
+      "original": "D:/projects/docs/八路灰度模块/4、程序源码.rar",
+      "archive_member": "4、程序源码/2.小车灰度巡线/2.STM32开发板小车/Grayscale_Trace/BSP/Grayscale_Sensor/grayscale_sensor.c"
+    },
+    {
+      "path": "modules/line_sensor/reference/car_grayscale_sensor.h",
+      "bytes": 1906,
+      "sha256": "294a9a172cb27e87cf175681370d82a72be44c607ad21c37c09447516cf6db14",
+      "original": "D:/projects/docs/八路灰度模块/4、程序源码.rar",
+      "archive_member": "4、程序源码/2.小车灰度巡线/2.STM32开发板小车/Grayscale_Trace/BSP/Grayscale_Sensor/grayscale_sensor.h"
+    },
+    {
+      "path": "modules/servo/reference/single_f103_main.c",
+      "bytes": 4953,
+      "sha256": "4f70eb492760d568609415723d2e5e0556531accdd0a133232e57848d412c2bd",
+      "original": "D:/projects/docs/单个舵机驱动代码/32单个舵机控制源码/USER/main.c"
+    },
+    {
+      "path": "modules/servo/reference/single_stc15_main.c",
+      "bytes": 2584,
+      "sha256": "fe742d84f8961f72b75067f385ef994f851b8f8337e03b78d2a6198ae7d3bdaa",
+      "original": "D:/projects/docs/单个舵机驱动代码/51单个舵机控制源码/src/main.c"
+    },
+    {
+      "path": "modules/servo/reference/single_arduino.ino",
+      "bytes": 2255,
+      "sha256": "6dfbd289f4549a03638a4030adc98e17cdff352c671d60fbe7bd7db649e53ccb",
+      "original": "D:/projects/docs/单个舵机驱动代码/arduino单个舵机控制源码/singleServo/singleServo.ino"
+    },
+    {
+      "path": "modules/servo/reference/single_arduino_ps2.ino",
+      "bytes": 11321,
+      "sha256": "65e82c4dadd66bc9955c9a67e19059e77217884fc372402ce9c139099e8e9863",
+      "original": "D:/projects/docs/单个舵机驱动代码/arduino单个舵机控制源码/bluetoothPS2ControlServo/bluetoothPS2ControlServo.ino"
+    },
+    {
+      "path": "modules/servo/reference/controller_f103_main.c",
+      "bytes": 19084,
+      "sha256": "a9d30c2eff3485f7eff35022dd072ce1b2f0abdce5cea54653197dddd2494af4",
+      "original": "D:/projects/docs/舵机控制器代码源码/32控制器源码/USER/main.c"
+    },
+    {
+      "path": "modules/servo/reference/controller_f103_timer.c",
+      "bytes": 5688,
+      "sha256": "4029b253e96a57a7103aef78e3e0b88f911678cf290bca4ec0db80aad06da0d2",
+      "original": "D:/projects/docs/舵机控制器代码源码/32控制器源码/TB_LIB/TIMER/tb_timer.c"
+    },
+    {
+      "path": "modules/servo/reference/controller_f103_gpio.c",
+      "bytes": 4080,
+      "sha256": "d29004ce812ab22b8071830bbe512a4aaf10db63fd624aa3582a5005ac0abce2",
+      "original": "D:/projects/docs/舵机控制器代码源码/32控制器源码/TB_LIB/GPIO/tb_gpio.c"
+    },
+    {
+      "path": "modules/servo/reference/controller_f103_global.c",
+      "bytes": 877,
+      "sha256": "c2e1dfb5aa3c3ee3b25d5cd802276abd07456ac10044b45b19e08dc44993986b",
+      "original": "D:/projects/docs/舵机控制器代码源码/32控制器源码/TB_LIB/GLOBAL/tb_global.c"
+    },
+    {
+      "path": "modules/servo/reference/controller_stc15_main.c",
+      "bytes": 20410,
+      "sha256": "d2155d7da5de8451032be5a9a7721a138cf050795d604fc25d16b82ecd7f9da8",
+      "original": "D:/projects/docs/舵机控制器代码源码/51控制器源码/src/main.c"
+    },
+    {
+      "path": "modules/servo/reference/controller_stc15_pwm.c",
+      "bytes": 4177,
+      "sha256": "ff576192dfe5cd77fddd88a5079ca69e69d9ccca73d841549aa55ee9a9eff404",
+      "original": "D:/projects/docs/舵机控制器代码源码/51控制器源码/src/pwm.c"
+    },
+    {
+      "path": "modules/servo/reference/controller_stc15_timer.c",
+      "bytes": 2427,
+      "sha256": "08fce96f7041645ee5182a7245feb9260c5662d5af37876bc756cb869c60a4ca",
+      "original": "D:/projects/docs/舵机控制器代码源码/51控制器源码/src/timer.c"
+    },
+    {
+      "path": "modules/servo/reference/controller_arduino.ino",
+      "bytes": 7259,
+      "sha256": "5956eb52a79e9baae213a687c1e96de5ed63f8f2fb01e0cec5bef1e062fad204",
+      "original": "D:/projects/docs/舵机控制器代码源码/arduino控制器源码/L_JXB/L_JXB.ino"
+    },
+    {
+      "path": "modules/servo/reference/controller_arduino_servo.ino",
+      "bytes": 1229,
+      "sha256": "62f7715f5f1283f67985cb77d05b80c92b1e3a1b14d9501e2974b391dff0a339",
+      "original": "D:/projects/docs/舵机控制器代码源码/arduino控制器源码/L_JXB/handle_duoji.ino"
+    },
+    {
+      "path": "modules/servo/reference/jdy31_f103_main.c",
+      "bytes": 1570,
+      "sha256": "2899a73ff2cf25e21eeac2d7d154b69f16a6305def341b03aa01c503f432a88a",
+      "original": "D:/projects/docs/蓝牙串口模块JDY-31（4针）/STM32_LY/User/main.c"
+    },
+    {
+      "path": "modules/servo/reference/jdy31_f103_pwm.c",
+      "bytes": 1629,
+      "sha256": "12a38f3e1512df6654995b4961d7fd6817affa78e25ada1d7e5faa69e4c21727",
+      "original": "D:/projects/docs/蓝牙串口模块JDY-31（4针）/STM32_LY/Hardware/PWM.c"
+    },
+    {
+      "path": "modules/servo/reference/jdy31_f103_servo.c",
+      "bytes": 168,
+      "sha256": "721cb0eae89ebb5d47a1b139ddbe9acc82099a9c0cd18d2a44246a99d2a88e76",
+      "original": "D:/projects/docs/蓝牙串口模块JDY-31（4针）/STM32_LY/Hardware/servo.c"
+    }
+  ]
+}

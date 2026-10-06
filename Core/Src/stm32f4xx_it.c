@@ -20,6 +20,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "stm32f4xx_it.h"
+#include "car_hw.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 /* USER CODE END Includes */
@@ -56,8 +57,8 @@
 
 /* External variables --------------------------------------------------------*/
 extern TIM_HandleTypeDef htim1;
-extern TIM_HandleTypeDef htim9;
-extern UART_HandleTypeDef huart3;
+extern TIM_HandleTypeDef htim10, htim11, htim13;
+extern UART_HandleTypeDef huart1, huart3;
 /* USER CODE BEGIN EV */
 
 /* USER CODE END EV */
@@ -70,6 +71,7 @@ extern UART_HandleTypeDef huart3;
   */
 void NMI_Handler(void)
 {
+  CarHw_EmergencyStop();
   /* USER CODE BEGIN NonMaskableInt_IRQn 0 */
 
   /* USER CODE END NonMaskableInt_IRQn 0 */
@@ -85,6 +87,7 @@ void NMI_Handler(void)
   */
 void HardFault_Handler(void)
 {
+  CarHw_EmergencyStop();
   /* USER CODE BEGIN HardFault_IRQn 0 */
 
   /* USER CODE END HardFault_IRQn 0 */
@@ -100,6 +103,7 @@ void HardFault_Handler(void)
   */
 void MemManage_Handler(void)
 {
+  CarHw_EmergencyStop();
   /* USER CODE BEGIN MemoryManagement_IRQn 0 */
 
   /* USER CODE END MemoryManagement_IRQn 0 */
@@ -115,6 +119,7 @@ void MemManage_Handler(void)
   */
 void BusFault_Handler(void)
 {
+  CarHw_EmergencyStop();
   /* USER CODE BEGIN BusFault_IRQn 0 */
 
   /* USER CODE END BusFault_IRQn 0 */
@@ -130,6 +135,7 @@ void BusFault_Handler(void)
   */
 void UsageFault_Handler(void)
 {
+  CarHw_EmergencyStop();
   /* USER CODE BEGIN UsageFault_IRQn 0 */
 
   /* USER CODE END UsageFault_IRQn 0 */
@@ -201,23 +207,31 @@ void SysTick_Handler(void)
 /******************************************************************************/
 
 /**
-  * @brief This function handles TIM1 break interrupt and TIM9 global interrupt.
+  * @brief This function handles TIM10/TIM11/TIM13 capture interrupts and their shared vectors.
   */
-void TIM1_BRK_TIM9_IRQHandler(void)
-{
-  /* USER CODE BEGIN TIM1_BRK_TIM9_IRQn 0 */
-
-  /* USER CODE END TIM1_BRK_TIM9_IRQn 0 */
+void TIM1_UP_TIM10_IRQHandler(void) {
   HAL_TIM_IRQHandler(&htim1);
-  HAL_TIM_IRQHandler(&htim9);
-  /* USER CODE BEGIN TIM1_BRK_TIM9_IRQn 1 */
+  HAL_TIM_IRQHandler(&htim10);
+}
 
-  /* USER CODE END TIM1_BRK_TIM9_IRQn 1 */
+void TIM1_TRG_COM_TIM11_IRQHandler(void) {
+  HAL_TIM_IRQHandler(&htim1);
+  HAL_TIM_IRQHandler(&htim11);
+}
+
+void TIM8_UP_TIM13_IRQHandler(void) {
+  /* TIM8 is not enabled by this board configuration. */
+  HAL_TIM_IRQHandler(&htim13);
 }
 
 /**
   * @brief This function handles USART3 global interrupt.
   */
+void USART1_IRQHandler(void)
+{
+  HAL_UART_IRQHandler(&huart1);
+}
+
 void USART3_IRQHandler(void)
 {
   /* USER CODE BEGIN USART3_IRQn 0 */

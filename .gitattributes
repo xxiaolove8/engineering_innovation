@@ -1,0 +1,4 @@
+# Preserve archived reference bytes so their recorded checksums remain valid.
+docs/2026929PINOUT.md -text
+docs/archive/** -text
+docs/modules/*/reference/** -text
